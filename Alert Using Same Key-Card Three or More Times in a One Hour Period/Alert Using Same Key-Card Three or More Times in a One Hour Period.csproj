@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Alert_Using_Same_Key_Card_Three_or_More_Times_in_a_One_Hour_Period</RootNamespace>
+  </PropertyGroup>
+
+</Project>
