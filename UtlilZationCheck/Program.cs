@@ -8,10 +8,10 @@ namespace UtlilZationCheck
         {
             int intastances = (2);
             int[] avarageUtil = { 25,23,1,2,3,4,5,6,7,8,9,10,76,80};
-            Console.WriteLine(finalInstance(intastances, avarageUtil));
+            Console.WriteLine(FinalInstance(intastances, avarageUtil));
         }
 
-        private static int finalInstance(int intastances, int[] avarageUtil)
+        private static int FinalInstance(int intastances, int[] avarageUtil)
         {
             for(int i =0; i<avarageUtil.Length;i++)
             {

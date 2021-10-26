@@ -14,10 +14,10 @@ namespace AmazonFiveStarSeller
                 new int []{3,6}
             };
 
-            Console.WriteLine( fiveRequired(data,threshold));
+            Console.WriteLine( FiveRequired(data,threshold));
         }
 
-        private static int fiveRequired(int[][] data, int threshold)
+        private static int FiveRequired(int[][] data, int threshold)
         {
             int result = 0;
             int totalProducts = data.Length;

@@ -14,39 +14,39 @@ namespace SubarraySumDivisiblebyK
             int sum;
 
             int[] a = new int[] { };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { 1 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { 2, 1 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { 2, 3 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { 3, 2, 3, 2 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { -5, 10, 15, -5 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { 1, 2, 2, 1, 1, 4, 5, 3 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
 
             a = new int[] { -1, -2, -3, -4, -5 };
-            f(a, 0, a.Length, out maxStart, out maxEnd, out sum);
+            F(a, 0, a.Length, out maxStart, out maxEnd, out sum);
             Console.WriteLine("{0},{1},{2}", maxStart, maxEnd, sum);
         }
 
-        static void f(int[] a, int start, int end, out int maxStart, out int maxEnd, out int sum)
+        static void F(int[] a, int start, int end, out int maxStart, out int maxEnd, out int sum)
         {
             if (end - start < 0)
             {
@@ -82,8 +82,8 @@ namespace SubarraySumDivisiblebyK
                 int rightMaxEnd;
                 int rightMaxSum;
                 int mid = (start + end) / 2;
-                f(a, start, mid, out leftMaxStart, out leftMaxEnd, out leftMaxSum);
-                f(a, mid, end, out rightMaxStart, out rightMaxEnd, out rightMaxSum);
+                F(a, start, mid, out leftMaxStart, out leftMaxEnd, out leftMaxSum);
+                F(a, mid, end, out rightMaxStart, out rightMaxEnd, out rightMaxSum);
 
                 int[] r = new int[k];
                 int[] rightEnds = new int[k];   //right end index array

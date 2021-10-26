@@ -7,6 +7,11 @@ namespace _3Sum
     {
         static void Main(string[] args)
         {
+            if (args is null)
+            {
+                throw new ArgumentNullException(nameof(args));
+            }
+
             int[] arr = new int[6] { -1, 0, 1, 2, -1, -4 };
 
             IList<IList<int>> triplets = ThreeSumClose(arr);

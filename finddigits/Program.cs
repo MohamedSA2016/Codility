@@ -21,12 +21,12 @@ namespace finddigits
 
             IList<string> result = new List<string>();
 
-            result = dfs(result, map, digits);
+            result = Dfs(result, map, digits);
 
             return result;
         }
 
-        private static IList<string> dfs(IList<string> result, string[] map, string digits)
+        private static IList<string> Dfs(IList<string> result, string[] map, string digits)
         {
             if (digits.Length == 0)
                 return result;
@@ -50,7 +50,7 @@ namespace finddigits
 
             }
 
-            result = dfs(aux, map, digits.Remove(0, 1));
+            result = Dfs(aux, map, digits.Remove(0, 1));
 
             return result;
         }
