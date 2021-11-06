@@ -21,33 +21,51 @@ namespace Top_K_Frequent_Elements
     {
         public IList<int>  TopKFrequent(int[] nums, int k)
         {
-            IList<int> res = new List<int>();
+            Dictionary<int, int> map = new Dictionary<int, int>();
+                 //Frequency count Dictionary
+        Dictionary<int, int> dict = new Dictionary<int, int>();
+            //Make bucket
+            List<int>[] bucket = new List<int>[nums.Length + 1];
 
-            Dictionary<int, int> dict = new Dictionary<int, int>();
-
-            for(int i =0; i<nums.Length; i++)
+            //Intialize each list of the array
+            for (int i = 0; i <= nums.Length; i++)
             {
-                if(!dict.ContainsKey(nums[i]))
-                {
-                    dict.Add(nums[i], 1);
+                bucket[i] = new List<int>();
+            }
 
-                }
+            //Count the frequency of each element
+            foreach (int n in nums)
+            {
+                if (!dict.ContainsKey(n))
+                    dict.Add(n, 1);
                 else
-                {
-                    dict[nums[i]]++;
-                }
-            }
-            foreach(KeyValuePair<int,int> item in dict.OrderByDescending(key=>key.Value))
-            {
-                if(k>0)
-                {
-                    Console.WriteLine(item.Key + "  " + item.Value);
-                    res.Add(item.Key);
-                    k--;
-                }
+                    dict[n]++;
             }
 
-            return res;
+            //Add it to the buckets
+            foreach (var e in dict)
+            {
+                bucket[e.Value].Add(e.Key);
+            }
+
+            //Result array of length k
+            int[] result = new int[k];
+            //Index for the result array
+            int m = 0;
+
+            for (int i = bucket.Length - 1; i >= 0; i--)
+            {
+                if (m >= k)
+                    break;  //All top k elements added
+                for (int j = 0; j < bucket[i].Count; j++)
+                {
+                    result[m] = bucket[i][j];
+                    m++;
+                    if (m >= k)
+                        break;
+                }
+            }
+            return result;
         }
     }
 }

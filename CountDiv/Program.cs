@@ -8,7 +8,6 @@ namespace CountDiv
         {
             var A1 = 6;
             var B1 = 11;
-            var K1 = 2;
 
             var A2 = 1;
             var B2 = 1;

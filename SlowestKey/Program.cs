@@ -18,24 +18,23 @@ namespace SlowestKey
 
         private static char Slowest(int[][] keyTimes)
         {
-            int maxIndex = keyTimes[0][0];
-            int max = keyTimes[0][1];
-            int prev = keyTimes[0][1];
-            for(int i =1; i<keyTimes.Length;i++)
+            int maxDiff = keyTimes[0][1];
+            char key = (char)(keyTimes[0][0] + 'a');
+            int preTime = keyTimes[0][1];
+
+            for (int i = 1; i < keyTimes.Length; i++)
             {
-                int curr = keyTimes[i][1] - prev;
-                if(curr > max)
+                int diff = keyTimes[i][1] - preTime;
+                if (diff > maxDiff)
                 {
-                    maxIndex = keyTimes[i][0];
-                    max = curr;
-
+                    maxDiff = diff;
+                    key = (char)(keyTimes[i][0] + 'a');
                 }
-                prev = keyTimes[i][1];
 
+                preTime = keyTimes[i][1];
             }
-            string table = "abcdefghijklmnopqrstuvwxyz";
 
-            return table(maxIndex);
+            return key;
         }
     }
 }
